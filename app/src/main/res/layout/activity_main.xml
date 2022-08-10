@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.MapFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/barrier2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/distanceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="4dp"
+        android:text="0"
+        android:textColor="@color/colorText"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/distanceLableTextView"
+        app:layout_constraintEnd_toEndOf="@+id/distanceLableTextView"
+        app:layout_constraintStart_toStartOf="@+id/distanceLableTextView" />
+
+    <TextView
+        android:id="@+id/durationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="4dp"
+        android:text="0:00"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="@color/colorText"
+        app:layout_constraintBottom_toTopOf="@+id/durationLableTextView"
+        app:layout_constraintEnd_toEndOf="@+id/durationLableTextView"
+        app:layout_constraintStart_toStartOf="@+id/durationLableTextView" />
+
+    <TextView
+        android:id="@+id/distanceLableTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:text="DISTANCE (m)"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/startPauseButton"
+        app:layout_constraintEnd_toStartOf="@+id/durationLableTextView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/durationLableTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:text="DURATION (m:s)"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/startPauseButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/distanceLableTextView" />
+
+    <ToggleButton
+        android:id="@+id/startPauseButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/custom_button_start"
+        android:text="ToggleButton"
+        android:textColor="@android:color/background_light"
+        android:onClick="startPauseButtonClick"
+        android:textOff="START/RESUME"
+        android:textOn="PAUSE"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/serviceInfoTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/serviceInfoTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Service Info"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.471"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top"
+        app:constraint_referenced_ids="durationTextView,distanceTextView,startPauseButton,distanceLableTextView,serviceInfoTextView,durationLableTextView"
+        tools:layout_editor_absoluteY="581dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
